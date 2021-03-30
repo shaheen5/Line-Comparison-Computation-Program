@@ -12,7 +12,10 @@ public class LineComparisonComputation {
 		System.out.println("Line 2 Co-ordinates:-");
 		double length2=CalculateLength(sc);
 		System.out.println("Length of Line 2 is "+length2);
-		checkEquality(length1,length2);
+		String length_1=Double.toString(length1);
+		String length_2=Double.toString(length2);
+		checkEquality(length_1,length_2);
+		compareLines(length_1,length_2);
 	}
 	
 	static double CalculateLength(Scanner sc) {
@@ -29,14 +32,20 @@ public class LineComparisonComputation {
 		return Math.sqrt((x2_coordinate-x1_coordinate)*(x2_coordinate-x1_coordinate)+(y2_coordinate-y1_coordinate)*(y2_coordinate-y1_coordinate)); 		
 	}
 
-	static void checkEquality(double length1,double length2) {
-		String length_1=Double.toString(length1);
-		String length_2=Double.toString(length2);
-		if (length_1.equals(length_2))
+	static void checkEquality(String length1,String length2) {
+		if (length1.equals(length2))
 			System.out.println("Lines are Equal!");
 		else
-			System.out.println("Lines are not Equal!");
-		
+			System.out.println("Lines are not Equal!");	
+	}
+	
+	static void compareLines(String length1,String length2) {
+		if(length1.compareTo(length2)==0)
+			System.out.println("length1 is equal to length2 !!");
+		else if(length1.compareTo(length2)<0)
+			System.out.println("length1 is less than length2 !!");
+		else
+			System.out.println("length1 is greater than length2 !!");
 	}
 
 }
